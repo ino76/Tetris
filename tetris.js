@@ -192,13 +192,17 @@ function updateScore() {
     document.getElementById('score').innerText = player.score;
 }
 
+function playerDropDown() {
+  while(playerDrop()) {}
+}
+
 document.addEventListener("keydown", event => {
   switch (event.keyCode) {
     case 37:
       playerMove(-1);
       break;
     case 38:
-      while (playerDrop()) {}
+      playerDropDown();
       break;
     case 39:
       playerMove(1);
