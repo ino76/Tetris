@@ -211,10 +211,10 @@ document.addEventListener("keydown", event => {
       playerDrop();
       break;
     case 81:
-      playerRotate(1);
+      playerRotate(-1);
       break;
     case 87:
-      playerRotate(-1);
+      playerRotate(1);
       break;
   }
 });
