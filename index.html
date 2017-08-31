@@ -1,11 +1,18 @@
 <html>
 
 <head>
+        <script src="jq.js">
+        </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+   
     <title>Tetris</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+          }
+
         #score {
             color: white;
             font-family: "Georgia", monospace;
@@ -26,7 +33,10 @@
             background-color: #080020;
         }
 
-        .container {}
+        .container {
+            height: 90vh;
+            width: 37vh;
+        }
 
         .control {
             margin-top: 20px;
@@ -35,7 +45,7 @@
             width: 130%;
             position: relative;
             right: 15%;
-            bottom: 30%;
+            height: 10vh;
         }
 
         .control button {
@@ -100,6 +110,23 @@
     </div>
 
     <script src="tetris.js"></script>
+    <script>
+    $("#tetris").on("tap", function(){
+        playerRotate(1);
+        }); 
+    
+    $("#tetris").on("swipeleft", function(){
+        playerRotate(1);
+        }); 
+    
+    $("#tetris").on("swiperight", function(){
+        playerRotate(1);
+        });
+       
+    $("#tetris").on("click", function(){
+        playerRotate(1);
+        }); 
+    </script>
 </body>
 
 </html>
