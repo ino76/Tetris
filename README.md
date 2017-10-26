@@ -11,4 +11,4 @@ Only the basic tetris functionality is implemented for now. I'm planning another
 
 Below are buttons for playing on your phone / tablet.
 
-![Tetris game](http://dn8.cz/js/tetris/tetris2.jpg)
+![Tetris game](http://dn8.cz/js/tetris/tetris2.png)
