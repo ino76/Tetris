@@ -192,13 +192,17 @@ function updateScore() {
     document.getElementById('score').innerText = player.score;
 }
 
+function playerDropDown() {
+  while(playerDrop()) {}
+}
+
 document.addEventListener("keydown", event => {
   switch (event.keyCode) {
     case 37:
       playerMove(-1);
       break;
     case 38:
-      while (playerDrop()) {}
+      playerDropDown();
       break;
     case 39:
       playerMove(1);
@@ -207,10 +211,10 @@ document.addEventListener("keydown", event => {
       playerDrop();
       break;
     case 81:
-      playerRotate(1);
+      playerRotate(-1);
       break;
     case 87:
-      playerRotate(-1);
+      playerRotate(1);
       break;
   }
 });

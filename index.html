@@ -1,11 +1,18 @@
 <html>
 
 <head>
+        <script src="jq.js">
+        </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+   
     <title>Tetris</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+          }
+
         #score {
             color: white;
             font-family: "Georgia", monospace;
@@ -16,7 +23,7 @@
 
         #tetris {
             border: 3px solid white;
-            height: 80vh;
+            height: 60vh;
         }
 
         body {
@@ -27,19 +34,99 @@
         }
 
         .container {
-
+            height: 90vh;
+            width: 37vh;
         }
-    </style>
 
+        .control {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 130%;
+            position: relative;
+            right: 15%;
+            height: 10vh;
+        }
+
+        .control button {
+            background-color: transparent;
+            color: #55a;
+            border-radius: 8px;
+            border: 1px solid #337;
+        }
+
+        .control button:active {
+            color: #66b;
+            border-color: #448;
+        }
+
+        button i {
+            margin: 5px;
+        }
+
+        #right {
+            flex-grow: 1;
+        }
+
+        #left {
+            flex-grow: 1;
+        }
+
+        #rotateLeft {
+            flex-grow: 5;
+        }
+
+        #rotateRight {
+            flex-grow: 5;
+        }
+
+        #drop {
+            flex-grow: 2;
+        }
+
+        #dropDown {
+            flex-grow: 1;
+        }
+
+    </style>
+    <link rel="stylesheet" href="fa/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="container">
         <div id="score">0</div>
         <canvas id="tetris" width="240" height="400"></canvas>
+
+        <div class="control">
+            <button id="left" onclick="playerMove(-1)" name="LEFT"><i  class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></button>
+            <button id="right" onclick="playerMove(1)" name="RIGHT"><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></button>
+        </div>
+        <div class="control">
+            <button id="rotateLeft" onclick="playerRotate(-1)" name="Q"><i  class="fa fa-undo fa-4x" aria-hidden="true"></i></button>
+            <button id="drop" onclick="playerDrop()" name="DOWN"><i class="fa fa-step-forward fa-4x fa-rotate-90" style="margin: 15px" aria-hidden="true"></i></button>
+            <button id="dropDown" onclick="playerDropDown()" name="UP"><i class="fa fa-fast-forward fa-4x fa-rotate-90" aria-hidden="true"></i></button>
+            <button id="rotateRight" onclick="playerRotate(1)"><i class="fa fa-repeat fa-4x" aria-hidden="true"></i></button>
+        </div>
     </div>
 
     <script src="tetris.js"></script>
+    <script>
+    $("#tetris").on("tap", function(){
+        playerRotate(1);
+        }); 
+    
+    $("#tetris").on("swipeleft", function(){
+        playerRotate(1);
+        }); 
+    
+    $("#tetris").on("swiperight", function(){
+        playerRotate(1);
+        });
+       
+    $("#tetris").on("click", function(){
+        playerRotate(1);
+        }); 
+    </script>
 </body>
 
 </html>
